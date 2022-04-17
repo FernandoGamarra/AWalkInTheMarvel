@@ -23,7 +23,7 @@ class helperDevelopMarvelApi {
         
         var url: String = defsApi.baseAddress
         url += getFunctionUrl(functionType)
-        url += "?apikey=\(publicKey)"
+        url += "?apiikey=\(publicKey)"
         url += hashParam
         
         return url

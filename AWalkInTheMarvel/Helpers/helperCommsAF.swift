@@ -44,17 +44,17 @@ class helperCommsAF {
                     }
                     break
                 case .failure(_):
-                    handler(nil, self.parseError(data: response.data))
+                    handler(nil, self.parseError(data: response.data, code: request.apiFunc!.rawValue))
                     break
                 }
             }
     }
     
-    private func parseError(data: Data?) -> Error {
-        var retValue: Error!
+    private func parseError(data: Data?, code: Int) -> Error {
+        var retValue: NSError!
         
         if let jsonData = data, let error = try? JSONDecoder().decode(ErrorObj.self, from: jsonData) {
-            retValue = error as? Error
+            retValue = NSError(domain: error.key!, code: code, userInfo: [NSLocalizedDescriptionKey: error.message!])
         }
         
         return retValue
@@ -64,8 +64,13 @@ class helperCommsAF {
 }
 
 class ErrorObj: Codable {
-    let message: String
+    let message: String?
     let key: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case message
+        case key = "code"
+    }
 }
 
 

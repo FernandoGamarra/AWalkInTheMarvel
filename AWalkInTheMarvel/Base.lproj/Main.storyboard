@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="etS-qU-phn"/>
+                        <segue destination="aIq-pK-gCp" kind="relationship" relationship="rootViewController" id="QLL-D2-Sqx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWl-DD-j38" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -26,20 +26,32 @@
             <point key="canvasLocation" x="-1110" y="-12"/>
         </scene>
         <!--Vc Table Characters-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="Pdq-MH-UeO">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="vcTableCharacters" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="aIq-pK-gCp" customClass="vcTableCharacters" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GTK-4x-UKr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rWT-je-JCp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vbl-gX-91F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rWT-je-JCp" firstAttribute="top" secondItem="vbl-gX-91F" secondAttribute="top" id="8d6-qJ-O6x"/>
+                            <constraint firstItem="rWT-je-JCp" firstAttribute="trailing" secondItem="vbl-gX-91F" secondAttribute="trailing" id="8sz-Ab-hxb"/>
+                            <constraint firstAttribute="bottom" secondItem="rWT-je-JCp" secondAttribute="bottom" id="aA2-9d-dvE"/>
+                            <constraint firstItem="rWT-je-JCp" firstAttribute="leading" secondItem="vbl-gX-91F" secondAttribute="leading" id="tmQ-TD-dLg"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3ps-NP-uJ2"/>
+                    <navigationItem key="navigationItem" id="YGL-1d-a2S"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbY-dv-IlL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-190" y="-12"/>
+            <point key="canvasLocation" x="-259.4202898550725" y="-12.053571428571429"/>
         </scene>
     </scenes>
     <resources>
