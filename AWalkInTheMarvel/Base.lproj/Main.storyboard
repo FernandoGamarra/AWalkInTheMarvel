@@ -56,6 +56,36 @@
             </objects>
             <point key="canvasLocation" x="-259.4202898550725" y="-12.053571428571429"/>
         </scene>
+        <!--Vc Character Details-->
+        <scene sceneID="sZP-VA-qIa">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="qDi-3b-5RA" customClass="vcCharacterDetails" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Wd-zS-lUz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2is-Zj-OJy">
+                                <rect key="frame" x="35" y="94" width="344" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lgk-Es-q8E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2is-Zj-OJy" firstAttribute="top" secondItem="lgk-Es-q8E" secondAttribute="top" constant="50" id="AI7-kd-9B5"/>
+                            <constraint firstItem="2is-Zj-OJy" firstAttribute="bottom" secondItem="lgk-Es-q8E" secondAttribute="bottom" constant="50" id="Cov-mR-zJu"/>
+                            <constraint firstItem="lgk-Es-q8E" firstAttribute="trailing" secondItem="2is-Zj-OJy" secondAttribute="trailing" constant="35" id="eoT-8p-L9i"/>
+                            <constraint firstItem="2is-Zj-OJy" firstAttribute="leading" secondItem="lgk-Es-q8E" secondAttribute="leading" constant="35" id="jMs-79-3n5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="viewContainer" destination="2is-Zj-OJy" id="7bK-Gn-orR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5q-QD-x0v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034.7826086956522" y="-12.053571428571429"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

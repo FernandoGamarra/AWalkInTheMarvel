@@ -10,6 +10,7 @@ import UIKit
 // MARK: UITableViewDelegate implementation
 extension vcTableCharacters: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
         return 130
     }
 }

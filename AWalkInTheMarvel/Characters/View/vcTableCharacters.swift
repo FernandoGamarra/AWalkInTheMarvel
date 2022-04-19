@@ -39,7 +39,10 @@ class vcTableCharacters: UIViewController {
         table.separatorColor = .black
         table.separatorStyle = .singleLine
         table.tableFooterView = UIView()
-        table.allowsSelection = false
+        table.allowsSelection = true
+        
+//        table.estimatedRowHeight = 130.0
+//        table.rowHeight = UITableView.automaticDimension
 
         let cell: UINib = UINib(nibName: cellCharacter, bundle: nil)
         table.register(cell, forCellReuseIdentifier: cellCharacter)
@@ -67,18 +70,16 @@ class vcTableCharacters: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Colors.NavBar
         
-        let navController = navigationController!
-        
-        let logo = UIImage(named: "MarvelLogo")
-        let imageView = UIImageView(image: logo)
-        
-        let bannerWidth = navController.navigationBar.frame.size.width
-        let bannerHeight = navController.navigationBar.frame.size.height
-        let bannerX = bannerWidth / 2 - (logo?.size.width)! / 3
-        let bannerY = bannerHeight / 2 - (logo?.size.height)! / 3
-        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        let logo: UIImage? = UIImage(named: "MarvelLogo")
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 60, height: 15))
+        let imageView = UIImageView(frame: rect)
+        imageView.image = logo
         imageView.contentMode = .scaleAspectFit
-        
+
+        let titleView = UIView(frame: CGRect(x:0, y: 0, width: 60, height: 15))
+        imageView.frame = titleView.bounds
+        titleView.addSubview(imageView)
+         
         self.navigationItem.titleView = imageView
         
         navigationController?.navigationBar.standardAppearance = appearance
