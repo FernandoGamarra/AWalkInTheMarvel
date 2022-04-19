@@ -13,5 +13,5 @@ struct vmCharacterCell {
     var name: String
     var description: String
     var imagePath: String
-    var image: UIImage
+    var image: UIImage? = nil
 }

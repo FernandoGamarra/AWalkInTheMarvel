@@ -26,7 +26,7 @@ protocol IRequest {
 class baseRequest: IRequest {
     internal var Url: String {
         if self.apiFunc != nil {
-            return helperDevelopMarvelApi.getUrl(apiFunc!)
+            return helperDevelopMarvelApi.getUrl(apiFunc!, offset: offset)
         }
         else {
             return ""
@@ -39,20 +39,25 @@ class baseRequest: IRequest {
     
     internal var headers: HTTPHeaders? = nil
     
+    internal var offset: Int? = nil
+    
     init() {
     }
     
-    init(_ httpMethod: HTTPMethod) {
+    init(_ httpMethod: HTTPMethod, offset: Int? = nil) {
         self.httpMethod = httpMethod
+        self.offset = offset
     }
     
-    init(_ apiFunction: eApiFunction) {
+    init(_ apiFunction: eApiFunction, offset: Int? = nil) {
         self.apiFunc = apiFunction
+        self.offset = offset
     }
     
-    init(apiFunction: eApiFunction, httpMethod: HTTPMethod) {
+    init(apiFunction: eApiFunction, httpMethod: HTTPMethod, offset: Int? = nil) {
         self.apiFunc = apiFunction
         self.httpMethod = httpMethod
+        self.offset = offset
     }
     func setApiFunc(_ funcApi: eApiFunction) {
         apiFunc = funcApi

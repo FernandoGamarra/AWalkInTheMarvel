@@ -25,6 +25,7 @@ class CharacterCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        initView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +35,7 @@ class CharacterCell: UITableViewCell {
     }
     
     func initView() {
-        backgroundColor = .clear
+        backgroundColor = Colors.AppBackground
         preservesSuperviewLayoutMargins = false
         separatorInset = UIEdgeInsets.zero
         layoutMargins = UIEdgeInsets.zero

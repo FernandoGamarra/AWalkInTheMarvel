@@ -24,6 +24,9 @@ extension vcTableCharacters: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellCharacter, for: indexPath) as? CharacterCell else { fatalError("xib does not exists") }
         
         let cellVM = viewModel.getCellViewModel(at: indexPath)
+        if cellVM.image == nil  {
+            viewModel.downloadCharacterImage(index: indexPath, url: cellVM.imagePath)
+        }
         cell.cellViewModel = cellVM
         
         return cell

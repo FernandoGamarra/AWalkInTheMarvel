@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class helperCommsAF {
     
@@ -28,7 +29,7 @@ class helperCommsAF {
     }
     
     
-    func call<T>(request: IRequest, params: Parameters? = nil, handler: @escaping (T?, _ error: Error?)->()) where T: Codable {
+    func callRequest<T>(request: IRequest, params: Parameters? = nil, handler: @escaping (T?, _ error: Error?)->()) where T: Codable {
         
         self.sessionManager.request(request.getUrl(),
                                     method: request.getHttpMethod(),
@@ -50,11 +51,47 @@ class helperCommsAF {
             }
     }
     
+    func downloadImage(url: String, handler: @escaping (UIImage?, _ error: Error?)->()) {
+        
+        
+        self.sessionManager.request(url).responseImage { response in
+            
+//            debugPrint(response)
+//
+//                print(response.request)
+//                print(response.response)
+//                debugPrint(response.result)
+//
+//                if case .success(let image) = response.result {
+//                    print("image downloaded: \(image)")
+//                    handler(image, nil)
+//                }
+            
+            
+            
+            
+
+            switch response.result {
+            case .success(_):
+                let img = UIImage(data: response.data!, scale: 1)
+                handler(img, nil)
+                break
+            case .failure(_):
+                handler(nil, self.parseError(data: response.data, code: eApiFunction.DOWNLOAD_IMAGE.rawValue))
+                break
+            }
+        }
+        
+    }
+    
     private func parseError(data: Data?, code: Int) -> Error {
         var retValue: NSError!
         
         if let jsonData = data, let error = try? JSONDecoder().decode(ErrorObj.self, from: jsonData) {
             retValue = NSError(domain: error.key!, code: code, userInfo: [NSLocalizedDescriptionKey: error.message!])
+        }
+        else {
+            retValue = NSError(domain: "", code: code, userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
         }
         
         return retValue

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E889C7E6280F4E23005F186D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7E5280F4E23005F186D /* UIColorExtension.swift */; };
+		E889C7E9280F4E56005F186D /* defsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7E8280F4E56005F186D /* defsApp.swift */; };
 		E8AB7BC4280625750004332F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E8AB7BC3280625750004332F /* Alamofire */; };
 		E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BC528062A8F0004332F /* HttpComms.swift */; };
 		E8AB7BCB280719370004332F /* dataCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BCA280719370004332F /* dataCharacter.swift */; };
@@ -22,6 +24,7 @@
 		E8AB7BE4280C7DAA0004332F /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AB7BE2280C7DAA0004332F /* CharacterCell.xib */; };
 		E8AB7BE6280CBB930004332F /* vmCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BE5280CBB930004332F /* vmCharacters.swift */; };
 		E8AB7BE8280CBF340004332F /* vmCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BE7280CBF340004332F /* vmCharacterCell.swift */; };
+		E8B16271280E15FA005D9656 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = E8B16270280E15FA005D9656 /* AlamofireImage */; };
 		E8DAED262804DB0C00BC5CD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAED252804DB0C00BC5CD6 /* AppDelegate.swift */; };
 		E8DAED282804DB0C00BC5CD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAED272804DB0C00BC5CD6 /* SceneDelegate.swift */; };
 		E8DAED2A2804DB0C00BC5CD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAED292804DB0C00BC5CD6 /* ViewController.swift */; };
@@ -51,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E889C7E5280F4E23005F186D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E889C7E8280F4E56005F186D /* defsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defsApp.swift; sourceTree = "<group>"; };
 		E8AB7BC528062A8F0004332F /* HttpComms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpComms.swift; sourceTree = "<group>"; };
 		E8AB7BCA280719370004332F /* dataCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataCharacter.swift; sourceTree = "<group>"; };
 		E8AB7BCE2808EE4C0004332F /* vcTableCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcTableCharacters.swift; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8AB7BC4280625750004332F /* Alamofire in Frameworks */,
+				E8B16271280E15FA005D9656 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E889C7E7280F4E3F005F186D /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				E889C7E8280F4E56005F186D /* defsApp.swift */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
 		E8AB7BC8280717FB0004332F /* Characters */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +165,7 @@
 			children = (
 				E8AB7BD32808F0350004332F /* StringExtension.swift */,
 				E8AB7BD52808F0A60004332F /* DateExtension.swift */,
+				E889C7E5280F4E23005F186D /* UIColorExtension.swift */,
 			);
 			path = SwiftExtensions;
 			sourceTree = "<group>";
@@ -195,6 +210,7 @@
 		E8DAED242804DB0C00BC5CD6 /* AWalkInTheMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				E889C7E7280F4E3F005F186D /* Globals */,
 				E8AB7BC8280717FB0004332F /* Characters */,
 				E8AB7BCC2808EDBE0004332F /* Helpers */,
 				E8AB7BD22808F0190004332F /* SwiftExtensions */,
@@ -245,6 +261,7 @@
 			name = AWalkInTheMarvel;
 			packageProductDependencies = (
 				E8AB7BC3280625750004332F /* Alamofire */,
+				E8B16270280E15FA005D9656 /* AlamofireImage */,
 			);
 			productName = AWalkInTheMarvel;
 			productReference = E8DAED222804DB0C00BC5CD6 /* AWalkInTheMarvel.app */;
@@ -320,6 +337,7 @@
 			mainGroup = E8DAED192804DB0C00BC5CD6;
 			packageReferences = (
 				E8AB7BC2280625750004332F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E8B1626F280E15FA005D9656 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = E8DAED232804DB0C00BC5CD6 /* Products */;
 			projectDirPath = "";
@@ -365,6 +383,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E889C7E6280F4E23005F186D /* UIColorExtension.swift in Sources */,
+				E889C7E9280F4E56005F186D /* defsApp.swift in Sources */,
 				E8AB7BE8280CBF340004332F /* vmCharacterCell.swift in Sources */,
 				E8AB7BDE280B29B60004332F /* baseRequest.swift in Sources */,
 				E8DAED2A2804DB0C00BC5CD6 /* ViewController.swift in Sources */,
@@ -738,6 +758,14 @@
 				kind = branch;
 			};
 		};
+		E8B1626F280E15FA005D9656 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -745,6 +773,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E8AB7BC2280625750004332F /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E8B16270280E15FA005D9656 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8B1626F280E15FA005D9656 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

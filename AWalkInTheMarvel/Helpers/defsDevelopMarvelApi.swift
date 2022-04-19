@@ -9,6 +9,7 @@ import Foundation
 
 enum eApiFunction:  Int {
     case    GET_CHARACTERS          = 1
+    case    DOWNLOAD_IMAGE          = 101
 }
 
 struct defsApi {

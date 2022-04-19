@@ -19,19 +19,22 @@ class helperDevelopMarvelApi {
     }
 
     
-    static func getUrl(_ functionType: eApiFunction) -> String {
+    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil) -> String {
         
         var url: String = defsApi.baseAddress
         url += getFunctionUrl(functionType)
-        url += "?apiikey=\(publicKey)"
+        url += "?limit=100&apikey=\(publicKey)"
+        if offset != nil {
+            url += "&offset=\(offset!)"
+        }
         url += hashParam
         
         return url
         
     }
     
-    static func getUrl(_ functionType: eApiFunction) -> URL {
-        return URL(string: self.getUrl(functionType))!
+    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil) -> URL {
+        return URL(string: self.getUrl(functionType, offset: offset))!
     }
     
     static private func getFunctionUrl(_ functionType: eApiFunction) ->  String  {
@@ -41,7 +44,11 @@ class helperDevelopMarvelApi {
         case .GET_CHARACTERS:
             functionUrl = defsApi.charactersAddress
             break
+        default:
+            functionUrl = ""
+            break
         }
+        
 
         return functionUrl
     }
