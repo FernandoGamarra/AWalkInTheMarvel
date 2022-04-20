@@ -10,19 +10,19 @@ import Foundation
 
 class helperDevelopMarvelApi {
     
-    static let privateKey = "be8b66b5515b92d8297745e45dd34e3e306a273f"
-    static let publicKey = "6fc7aa73891a14e88a20a4425e522009"
+    let privateKey = "be8b66b5515b92d8297745e45dd34e3e306a273f"
+    let publicKey = "6fc7aa73891a14e88a20a4425e522009"
     
-    static var hashParam: String {
+    var hashParam: String {
         let timestamp = Date().currentTimeInMillis()
         return "&ts=\(timestamp)&hash=" + ("\(timestamp)\(privateKey)\(publicKey)".md5Value)
     }
 
     
-    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil, id: Int? = nil) -> String {
+    func getUrl(_ functionType: eApiFunction, offset: Int? = nil, id: Int? = nil) -> String {
         
         var url: String = defsApi.baseAddress
-        url += getFunctionUrl(functionType)
+        url += getFunctionUrl(functionType, id: id)
         url += "?limit=100&apikey=\(publicKey)"
         if offset != nil {
             url += "&offset=\(offset!)"
@@ -33,11 +33,11 @@ class helperDevelopMarvelApi {
         
     }
     
-    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil, id: Int? = nil) -> URL {
+    func getUrl(_ functionType: eApiFunction, offset: Int? = nil, id: Int? = nil) -> URL {
         return URL(string: self.getUrl(functionType, offset: offset, id: id))!
     }
     
-    static private func getFunctionUrl(_ functionType: eApiFunction, id: Int? = nil) ->  String  {
+    private func getFunctionUrl(_ functionType: eApiFunction, id: Int? = nil) ->  String  {
         var functionUrl: String!
         
         switch functionType {

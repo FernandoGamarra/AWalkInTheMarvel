@@ -56,21 +56,6 @@ class helperCommsAF {
         
         self.sessionManager.request(url).responseImage { response in
             
-//            debugPrint(response)
-//
-//                print(response.request)
-//                print(response.response)
-//                debugPrint(response.result)
-//
-//                if case .success(let image) = response.result {
-//                    print("image downloaded: \(image)")
-//                    handler(image, nil)
-//                }
-            
-            
-            
-            
-
             switch response.result {
             case .success(_):
                 let img = UIImage(data: response.data!, scale: 1)

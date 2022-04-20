@@ -11,28 +11,41 @@ class vcCharacterDetails: UIViewController {
 
     @IBOutlet weak var tableDetails: UITableView!
     
+    var viewModel: vmCharacterDetails!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
-        
+        initNavigationBar()
+        initializations()
 
     }
  
     func initializations() {
 
         let controller = self.navigationController?.previousViewController as? vcTableCharacters
-        controller!.fSelectedCharacter = { idCharacter, imgCharacter in
+        controller!.fSelectedCharacter = { [self] idCharacter, imgCharacter in
             print("Data received from Block is: ID[\(idCharacter)]  -  IMG[\(imgCharacter)]")
+            
+            initView()
+            
+            initViewModel(id: idCharacter, img: imgCharacter)
+            
         }
         
     }
  
+    func initView() {
+        
+        
+    }
     
-    
+    func initViewModel(id: Int, img: UIImage) {
+        viewModel = vmCharacterDetails(idCharacter: id, image: img)
+    }
 
     /*
     // MARK: - Navigation
@@ -44,4 +57,32 @@ class vcCharacterDetails: UIViewController {
     }
     */
 
+    
+    func initNavigationBar() {
+        
+        // TODO: Common source (a)
+        
+        self.view.backgroundColor = Colors.AppBackground
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = Colors.NavBar
+        
+        let logo: UIImage? = UIImage(named: "MarvelLogo")
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 60, height: 15))
+        let imageView = UIImageView(frame: rect)
+        imageView.image = logo
+        imageView.contentMode = .scaleAspectFit
+
+        let titleView = UIView(frame: CGRect(x:0, y: 0, width: 60, height: 15))
+        imageView.frame = titleView.bounds
+        titleView.addSubview(imageView)
+         
+        self.navigationItem.titleView = imageView
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+    }
+    
 }

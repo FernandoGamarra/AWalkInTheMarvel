@@ -68,6 +68,8 @@ class vcTableCharacters: UIViewController {
     
     func initNavigationBar() {
         
+        // TODO: Common source (a)
+        
         self.view.backgroundColor = Colors.AppBackground
         
         let appearance = UINavigationBarAppearance()

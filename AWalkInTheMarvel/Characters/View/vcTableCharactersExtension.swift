@@ -11,7 +11,14 @@ import UIKit
 extension vcTableCharacters: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
-        return 130
+//        return 130
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        if cellVM.description.count > 0 {
+            return 160
+        }
+        else {
+            return 110
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
