@@ -16,6 +16,8 @@
 		E889C7F728100DBB005F186D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F628100DBB005F186D /* UIViewExtension.swift */; };
 		E889C7F928100E45005F186D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F828100E45005F186D /* UINavigationControllerExtension.swift */; };
 		E889C7FB281043CE005F186D /* dataCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7FA281043CE005F186D /* dataCharacterDetails.swift */; };
+		E889C7FE28105330005F186D /* CharacterDetailsGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7FC28105330005F186D /* CharacterDetailsGeneralCell.swift */; };
+		E889C7FF28105330005F186D /* CharacterDetailsGeneralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E889C7FD28105330005F186D /* CharacterDetailsGeneralCell.xib */; };
 		E8AB7BC4280625750004332F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E8AB7BC3280625750004332F /* Alamofire */; };
 		E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BC528062A8F0004332F /* HttpComms.swift */; };
 		E8AB7BCB280719370004332F /* dataCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BCA280719370004332F /* dataCharacter.swift */; };
@@ -70,6 +72,8 @@
 		E889C7F628100DBB005F186D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		E889C7F828100E45005F186D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		E889C7FA281043CE005F186D /* dataCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataCharacterDetails.swift; sourceTree = "<group>"; };
+		E889C7FC28105330005F186D /* CharacterDetailsGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsGeneralCell.swift; sourceTree = "<group>"; };
+		E889C7FD28105330005F186D /* CharacterDetailsGeneralCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsGeneralCell.xib; sourceTree = "<group>"; };
 		E8AB7BC528062A8F0004332F /* HttpComms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpComms.swift; sourceTree = "<group>"; };
 		E8AB7BCA280719370004332F /* dataCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataCharacter.swift; sourceTree = "<group>"; };
 		E8AB7BCE2808EE4C0004332F /* vcTableCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcTableCharacters.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 			children = (
 				E889C7EE280F6D06005F186D /* vcCharacterDetailsModal.swift */,
 				E889C7F2281002ED005F186D /* vcCharacterDetails.swift */,
+				E889C7FC28105330005F186D /* CharacterDetailsGeneralCell.swift */,
+				E889C7FD28105330005F186D /* CharacterDetailsGeneralCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8DAED322804DB0E00BC5CD6 /* LaunchScreen.storyboard in Resources */,
+				E889C7FF28105330005F186D /* CharacterDetailsGeneralCell.xib in Resources */,
 				E8DAED2F2804DB0E00BC5CD6 /* Assets.xcassets in Resources */,
 				E8DAED2D2804DB0C00BC5CD6 /* Main.storyboard in Resources */,
 				E8AB7BE4280C7DAA0004332F /* CharacterCell.xib in Resources */,
@@ -441,6 +448,7 @@
 				E8AB7BE8280CBF340004332F /* vmCharacterCell.swift in Sources */,
 				E8AB7BDE280B29B60004332F /* baseRequest.swift in Sources */,
 				E8DAED2A2804DB0C00BC5CD6 /* ViewController.swift in Sources */,
+				E889C7FE28105330005F186D /* CharacterDetailsGeneralCell.swift in Sources */,
 				E889C7F528100A32005F186D /* UITableViewExtension.swift in Sources */,
 				E889C7F1280FFE17005F186D /* vmCharacterDetails.swift in Sources */,
 				E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */,
