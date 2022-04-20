@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		E889C7E6280F4E23005F186D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7E5280F4E23005F186D /* UIColorExtension.swift */; };
 		E889C7E9280F4E56005F186D /* defsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7E8280F4E56005F186D /* defsApp.swift */; };
-		E889C7EF280F6D06005F186D /* vcCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7EE280F6D06005F186D /* vcCharacterDetails.swift */; };
+		E889C7EF280F6D06005F186D /* vcCharacterDetailsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7EE280F6D06005F186D /* vcCharacterDetailsModal.swift */; };
+		E889C7F1280FFE17005F186D /* vmCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F0280FFE17005F186D /* vmCharacterDetails.swift */; };
+		E889C7F3281002ED005F186D /* vcCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F2281002ED005F186D /* vcCharacterDetails.swift */; };
+		E889C7F528100A32005F186D /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F428100A32005F186D /* UITableViewExtension.swift */; };
+		E889C7F728100DBB005F186D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F628100DBB005F186D /* UIViewExtension.swift */; };
+		E889C7F928100E45005F186D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7F828100E45005F186D /* UINavigationControllerExtension.swift */; };
 		E8AB7BC4280625750004332F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E8AB7BC3280625750004332F /* Alamofire */; };
 		E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BC528062A8F0004332F /* HttpComms.swift */; };
 		E8AB7BCB280719370004332F /* dataCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BCA280719370004332F /* dataCharacter.swift */; };
@@ -57,7 +62,12 @@
 /* Begin PBXFileReference section */
 		E889C7E5280F4E23005F186D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		E889C7E8280F4E56005F186D /* defsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defsApp.swift; sourceTree = "<group>"; };
-		E889C7EE280F6D06005F186D /* vcCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcCharacterDetails.swift; sourceTree = "<group>"; };
+		E889C7EE280F6D06005F186D /* vcCharacterDetailsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcCharacterDetailsModal.swift; sourceTree = "<group>"; };
+		E889C7F0280FFE17005F186D /* vmCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmCharacterDetails.swift; sourceTree = "<group>"; };
+		E889C7F2281002ED005F186D /* vcCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcCharacterDetails.swift; sourceTree = "<group>"; };
+		E889C7F428100A32005F186D /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		E889C7F628100DBB005F186D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		E889C7F828100E45005F186D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		E8AB7BC528062A8F0004332F /* HttpComms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpComms.swift; sourceTree = "<group>"; };
 		E8AB7BCA280719370004332F /* dataCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataCharacter.swift; sourceTree = "<group>"; };
 		E8AB7BCE2808EE4C0004332F /* vcTableCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcTableCharacters.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 		E889C7EB280F6C6E005F186D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E889C7F0280FFE17005F186D /* vmCharacterDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,7 +153,8 @@
 		E889C7EC280F6C7B005F186D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E889C7EE280F6D06005F186D /* vcCharacterDetails.swift */,
+				E889C7EE280F6D06005F186D /* vcCharacterDetailsModal.swift */,
+				E889C7F2281002ED005F186D /* vcCharacterDetails.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +212,9 @@
 				E8AB7BD32808F0350004332F /* StringExtension.swift */,
 				E8AB7BD52808F0A60004332F /* DateExtension.swift */,
 				E889C7E5280F4E23005F186D /* UIColorExtension.swift */,
+				E889C7F428100A32005F186D /* UITableViewExtension.swift */,
+				E889C7F628100DBB005F186D /* UIViewExtension.swift */,
+				E889C7F828100E45005F186D /* UINavigationControllerExtension.swift */,
 			);
 			path = SwiftExtensions;
 			sourceTree = "<group>";
@@ -423,6 +438,8 @@
 				E8AB7BE8280CBF340004332F /* vmCharacterCell.swift in Sources */,
 				E8AB7BDE280B29B60004332F /* baseRequest.swift in Sources */,
 				E8DAED2A2804DB0C00BC5CD6 /* ViewController.swift in Sources */,
+				E889C7F528100A32005F186D /* UITableViewExtension.swift in Sources */,
+				E889C7F1280FFE17005F186D /* vmCharacterDetails.swift in Sources */,
 				E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */,
 				E8AB7BE3280C7DAA0004332F /* CharacterCell.swift in Sources */,
 				E8AB7BCB280719370004332F /* dataCharacter.swift in Sources */,
@@ -431,12 +448,15 @@
 				E8AB7BD42808F0350004332F /* StringExtension.swift in Sources */,
 				E8DAED282804DB0C00BC5CD6 /* SceneDelegate.swift in Sources */,
 				E8AB7BDA280A355E0004332F /* helperCommsAF.swift in Sources */,
-				E889C7EF280F6D06005F186D /* vcCharacterDetails.swift in Sources */,
+				E889C7EF280F6D06005F186D /* vcCharacterDetailsModal.swift in Sources */,
 				E8AB7BD82808F2D50004332F /* defsDevelopMarvelApi.swift in Sources */,
 				E8AB7BCF2808EE4C0004332F /* vcTableCharacters.swift in Sources */,
 				E8AB7BD12808EF070004332F /* helperDevelopMarvelApi.swift in Sources */,
+				E889C7F728100DBB005F186D /* UIViewExtension.swift in Sources */,
 				E8AB7BE6280CBB930004332F /* vmCharacters.swift in Sources */,
 				E8AB7BE0280C7C460004332F /* vcTableCharactersExtension.swift in Sources */,
+				E889C7F3281002ED005F186D /* vcCharacterDetails.swift in Sources */,
+				E889C7F928100E45005F186D /* UINavigationControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

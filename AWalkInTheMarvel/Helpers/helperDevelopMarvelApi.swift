@@ -19,7 +19,7 @@ class helperDevelopMarvelApi {
     }
 
     
-    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil) -> String {
+    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil, id: Int? = nil) -> String {
         
         var url: String = defsApi.baseAddress
         url += getFunctionUrl(functionType)
@@ -33,16 +33,25 @@ class helperDevelopMarvelApi {
         
     }
     
-    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil) -> URL {
-        return URL(string: self.getUrl(functionType, offset: offset))!
+    static func getUrl(_ functionType: eApiFunction, offset: Int? = nil, id: Int? = nil) -> URL {
+        return URL(string: self.getUrl(functionType, offset: offset, id: id))!
     }
     
-    static private func getFunctionUrl(_ functionType: eApiFunction) ->  String  {
+    static private func getFunctionUrl(_ functionType: eApiFunction, id: Int? = nil) ->  String  {
         var functionUrl: String!
         
         switch functionType {
         case .GET_CHARACTERS:
             functionUrl = defsApi.charactersAddress
+            break
+        case .GET_CHARACTER_DETAILS:
+            if id != nil {
+                functionUrl = defsApi.characterDetailsAddress
+                functionUrl += "\(id!)"
+            }
+            else {
+                functionUrl = ""
+            }
             break
         default:
             functionUrl = ""

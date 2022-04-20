@@ -12,12 +12,14 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var charImage: UIImageView!
     @IBOutlet weak var charNameLabel: UILabel!
     @IBOutlet weak var charDescriptionLabel: UILabel!
+    var idCharacter: Int!
     
     var cellViewModel: vmCharacterCell? {
             didSet {
                 charNameLabel.text =  cellViewModel?.name
                 charDescriptionLabel.text = cellViewModel?.description
                 charImage.image = cellViewModel?.image
+                idCharacter = cellViewModel?.id
             }
         }
     

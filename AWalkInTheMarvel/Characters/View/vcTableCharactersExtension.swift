@@ -13,6 +13,17 @@ extension vcTableCharacters: UITableViewDelegate {
 //        return UITableView.automaticDimension
         return 130
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "vcCharacterDetails") as? vcCharacterDetails {
+            
+            navigationController?.pushViewController(viewController, animated: true)
+            indexPathSelectedRow = indexPath
+            
+        }
+        
+    }
 }
 
 // MARK: UITableViewDataSource implementation

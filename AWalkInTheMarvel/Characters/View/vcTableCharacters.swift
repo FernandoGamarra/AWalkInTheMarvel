@@ -13,9 +13,12 @@ class vcTableCharacters: UIViewController {
     
     let cellCharacter: String = "CharacterCell"
     
+    var fSelectedCharacter: ((Int, UIImage)->())?
+    
     lazy var viewModel = {
         vmCharacters()
     }()
+    var indexPathSelectedRow: IndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,5 +89,17 @@ class vcTableCharacters: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        table.deselectAllRows(animated: true)
+        indexPathSelectedRow = nil
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if indexPathSelectedRow != nil {
+            let currentSelectionCell = table.cellForRow(at: indexPathSelectedRow!) as! CharacterCell
+            fSelectedCharacter!(currentSelectionCell.idCharacter, currentSelectionCell.charImage.image!)
+        }
     }
 }

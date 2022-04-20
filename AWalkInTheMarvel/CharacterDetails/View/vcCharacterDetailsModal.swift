@@ -1,5 +1,5 @@
 //
-//  vcCharacterDetails.swift
+//  vcCharacterDetailsModal.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 20/4/22.
@@ -7,31 +7,19 @@
 
 import UIKit
 
-class vcCharacterDetails: UIViewController {
+class vcCharacterDetailsModal: UIViewController {
+    
+    
+    @IBOutlet weak var viewContainer: UIView!
+    
 
-    @IBOutlet weak var tableDetails: UITableView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        
-        
-
+        initializeView()
     }
- 
-    func initializations() {
-
-        let controller = self.navigationController?.previousViewController as? vcTableCharacters
-        controller!.fSelectedCharacter = { idCharacter, imgCharacter in
-            print("Data received from Block is: ID[\(idCharacter)]  -  IMG[\(imgCharacter)]")
-        }
-        
-    }
- 
-    
     
 
     /*
@@ -44,4 +32,14 @@ class vcCharacterDetails: UIViewController {
     }
     */
 
+    
+    func initializeView() {
+        
+        self.view.backgroundColor = UIColor(white: 0.5, alpha: 0.9)
+        
+        viewContainer.layer.cornerRadius = 12
+        viewContainer.layer.backgroundColor = Colors.AppBackground.cgColor
+        
+    }
+    
 }
