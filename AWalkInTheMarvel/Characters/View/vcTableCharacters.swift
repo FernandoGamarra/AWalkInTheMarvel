@@ -10,10 +10,13 @@ import UIKit
 class vcTableCharacters: UIViewController {
 
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var fieldFilter: TextFieldFloatingPlaceHolder!
     
     let cellCharacter: String = "CharacterCell"
     
     var fSelectedCharacter: ((Int, UIImage)->())?
+    
+    var mTextSelection: String = ""
     
     lazy var viewModel = {
         vmCharacters()
@@ -32,6 +35,7 @@ class vcTableCharacters: UIViewController {
 
     func initializations() {
         initView()
+        initControls()
         initViewModel()
     }
     
@@ -64,6 +68,14 @@ class vcTableCharacters: UIViewController {
                 self?.table.reloadRows(at: [index], with: .automatic)
             }
         }
+    }
+    
+    func initControls() {
+        fieldFilter.titleColor = .black
+        fieldFilter.placeholder = "Filter characters"
+        fieldFilter.title = "Find for..."
+        fieldFilter.layer.backgroundColor = UIColor.white.cgColor
+        fieldFilter.addTarget(self, action: #selector(self.onTextChanged(_:)), for: .editingChanged)
     }
     
     func initNavigationBar() {
@@ -104,4 +116,15 @@ class vcTableCharacters: UIViewController {
             fSelectedCharacter!(currentSelectionCell.idCharacter, currentSelectionCell.charImage.image!)
         }
     }
+    
+    // MARK: ITextFieldDelegate
+     @objc func onTextChanged(_ textField: UITextField) {
+         mTextSelection = textField.text!
+         if (mTextSelection.count > 0) {
+             
+         }
+         else {
+             
+         }
+     }
 }

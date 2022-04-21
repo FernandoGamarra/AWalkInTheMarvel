@@ -78,13 +78,13 @@ struct characterProperties: Codable {
 struct characterActivity: Codable {
     var available: Int? = nil
     var collectionURI: String? = nil
-    var comics: [dataActivity]? = nil
+    var items: [dataActivity]? = nil
     var number: Int? = nil
 
     enum CodingKeys: String, CodingKey {
         case available = "available"
         case collectionURI = "collectionURI"
-        case comics = "items"
+        case items = "items"
         case number = "returned"
     }
 }

@@ -8,12 +8,22 @@
 import UIKit
 
 class vcCharacterDetails: UIViewController {
+    
+    let TBL_SECTION_DETAILS_GENERAL      = 0
+    let TBL_SECTION_DETAILS_COMICS       = 1
+    let TBL_SECTION_DETAILS_SERIES       = 2
+    let TBL_SECTION_DETAILS_STORIES      = 3
+    let TBL_SECTION_DETAILS_EVENTS       = 4
 
     @IBOutlet weak var tableDetails: UITableView!
     
+    let cellCharacterDetailsGeneral: String = "CharacterDetailsGeneralCell"
+    let cellCharacterDetailsComics: String = "CharacterDetailsItemsCell"
+    let cellCharacterDetailsSeries: String = "CharacterDetailsItemsCell"
+    let cellCharacterDetailsStories: String = "CharacterDetailsItemsCell"
+    let cellCharacterDetailsEvents: String = "CharacterDetailsItemsCell"
+    
     var viewModel: vmCharacterDetails!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,37 +35,51 @@ class vcCharacterDetails: UIViewController {
     }
  
     func initializations() {
+        
+        initView()
 
         let controller = self.navigationController?.previousViewController as? vcTableCharacters
         controller!.fSelectedCharacter = { [self] idCharacter, imgCharacter in
             print("Data received from Block is: ID[\(idCharacter)]  -  IMG[\(imgCharacter)]")
             
-            initView()
-            
             initViewModel(id: idCharacter, img: imgCharacter)
-            
         }
         
     }
  
     func initView() {
         
+        tableDetails.delegate = self
+        tableDetails.dataSource = self
+        tableDetails.backgroundColor = Colors.AppBackground
+        tableDetails.separatorColor = .black
+        tableDetails.separatorStyle = .none
+        tableDetails.tableFooterView = UIView()
+        tableDetails.allowsSelection = true
+        
+        let cell: UINib = UINib(nibName: cellCharacterDetailsGeneral, bundle: nil)
+        tableDetails.register(cell, forCellReuseIdentifier: cellCharacterDetailsGeneral)
+        let cellComics: UINib = UINib(nibName: cellCharacterDetailsComics, bundle: nil)
+        tableDetails.register(cellComics, forCellReuseIdentifier: cellCharacterDetailsComics)
+        let cellSeries: UINib = UINib(nibName: cellCharacterDetailsSeries, bundle: nil)
+        tableDetails.register(cellSeries, forCellReuseIdentifier: cellCharacterDetailsSeries)
+        let cellStories: UINib = UINib(nibName: cellCharacterDetailsStories, bundle: nil)
+        tableDetails.register(cellStories, forCellReuseIdentifier: cellCharacterDetailsStories)
+        let cellEvents: UINib = UINib(nibName: cellCharacterDetailsEvents, bundle: nil)
+        tableDetails.register(cellEvents, forCellReuseIdentifier: cellCharacterDetailsEvents)
         
     }
     
     func initViewModel(id: Int, img: UIImage) {
         viewModel = vmCharacterDetails(idCharacter: id, image: img)
+        
+        viewModel.reloadTable = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableDetails.reloadData()
+            }
+        }
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
     func initNavigationBar() {

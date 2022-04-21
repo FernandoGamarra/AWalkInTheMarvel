@@ -34,21 +34,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rWT-je-JCp">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="765"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTy-da-dpI" customClass="TextFieldFloatingPlaceHolder" customModule="AWalkInTheMarvel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="sFy-ML-Zml"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vbl-gX-91F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rWT-je-JCp" firstAttribute="top" secondItem="vbl-gX-91F" secondAttribute="top" id="8d6-qJ-O6x"/>
+                            <constraint firstItem="qTy-da-dpI" firstAttribute="trailing" secondItem="vbl-gX-91F" secondAttribute="trailing" id="4Us-HY-jxs"/>
+                            <constraint firstItem="qTy-da-dpI" firstAttribute="top" secondItem="vbl-gX-91F" secondAttribute="top" id="7ww-8S-CsM"/>
+                            <constraint firstItem="rWT-je-JCp" firstAttribute="top" secondItem="qTy-da-dpI" secondAttribute="top" constant="43" id="8d6-qJ-O6x"/>
                             <constraint firstItem="rWT-je-JCp" firstAttribute="trailing" secondItem="vbl-gX-91F" secondAttribute="trailing" id="8sz-Ab-hxb"/>
+                            <constraint firstItem="qTy-da-dpI" firstAttribute="leading" secondItem="vbl-gX-91F" secondAttribute="leading" id="EhE-y0-efj"/>
                             <constraint firstAttribute="bottom" secondItem="rWT-je-JCp" secondAttribute="bottom" id="aA2-9d-dvE"/>
                             <constraint firstItem="rWT-je-JCp" firstAttribute="leading" secondItem="vbl-gX-91F" secondAttribute="leading" id="tmQ-TD-dLg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YGL-1d-a2S"/>
                     <connections>
+                        <outlet property="fieldFilter" destination="qTy-da-dpI" id="ZT0-lW-7gv"/>
                         <outlet property="table" destination="rWT-je-JCp" id="bha-p6-EcF"/>
                         <segue destination="C8i-r1-rzP" kind="show" id="A9G-fk-Knt"/>
                     </connections>
@@ -114,6 +126,11 @@
             <point key="canvasLocation" x="1938" y="-12"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="qTy-da-dpI">
+            <size key="intrinsicContentSize" width="414" height="39.220703125"/>
+        </designable>
+    </designables>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <systemColor name="systemBackgroundColor">

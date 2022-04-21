@@ -18,6 +18,12 @@
 		E889C7FB281043CE005F186D /* dataCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7FA281043CE005F186D /* dataCharacterDetails.swift */; };
 		E889C7FE28105330005F186D /* CharacterDetailsGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C7FC28105330005F186D /* CharacterDetailsGeneralCell.swift */; };
 		E889C7FF28105330005F186D /* CharacterDetailsGeneralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E889C7FD28105330005F186D /* CharacterDetailsGeneralCell.xib */; };
+		E889C8012810BF43005F186D /* vcCharacterDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C8002810BF43005F186D /* vcCharacterDetailsExtension.swift */; };
+		E889C8042810CCC3005F186D /* CharacterDetailsItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C8022810CCC3005F186D /* CharacterDetailsItemsCell.swift */; };
+		E889C8052810CCC3005F186D /* CharacterDetailsItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E889C8032810CCC3005F186D /* CharacterDetailsItemsCell.xib */; };
+		E889C80828121073005F186D /* AdvancedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C80728121073005F186D /* AdvancedTextField.swift */; };
+		E889C80A28121275005F186D /* TextFieldFloatingPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C80928121275005F186D /* TextFieldFloatingPlaceHolder.swift */; };
+		E889C80C281215CD005F186D /* TextFieldFloatingPlaceHolder+FixCarePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889C80B281215CD005F186D /* TextFieldFloatingPlaceHolder+FixCarePosition.swift */; };
 		E8AB7BC4280625750004332F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E8AB7BC3280625750004332F /* Alamofire */; };
 		E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BC528062A8F0004332F /* HttpComms.swift */; };
 		E8AB7BCB280719370004332F /* dataCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB7BCA280719370004332F /* dataCharacter.swift */; };
@@ -74,6 +80,12 @@
 		E889C7FA281043CE005F186D /* dataCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataCharacterDetails.swift; sourceTree = "<group>"; };
 		E889C7FC28105330005F186D /* CharacterDetailsGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsGeneralCell.swift; sourceTree = "<group>"; };
 		E889C7FD28105330005F186D /* CharacterDetailsGeneralCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsGeneralCell.xib; sourceTree = "<group>"; };
+		E889C8002810BF43005F186D /* vcCharacterDetailsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcCharacterDetailsExtension.swift; sourceTree = "<group>"; };
+		E889C8022810CCC3005F186D /* CharacterDetailsItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsItemsCell.swift; sourceTree = "<group>"; };
+		E889C8032810CCC3005F186D /* CharacterDetailsItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsItemsCell.xib; sourceTree = "<group>"; };
+		E889C80728121073005F186D /* AdvancedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTextField.swift; sourceTree = "<group>"; };
+		E889C80928121275005F186D /* TextFieldFloatingPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFloatingPlaceHolder.swift; sourceTree = "<group>"; };
+		E889C80B281215CD005F186D /* TextFieldFloatingPlaceHolder+FixCarePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldFloatingPlaceHolder+FixCarePosition.swift"; sourceTree = "<group>"; };
 		E8AB7BC528062A8F0004332F /* HttpComms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpComms.swift; sourceTree = "<group>"; };
 		E8AB7BCA280719370004332F /* dataCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataCharacter.swift; sourceTree = "<group>"; };
 		E8AB7BCE2808EE4C0004332F /* vcTableCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcTableCharacters.swift; sourceTree = "<group>"; };
@@ -163,6 +175,9 @@
 				E889C7F2281002ED005F186D /* vcCharacterDetails.swift */,
 				E889C7FC28105330005F186D /* CharacterDetailsGeneralCell.swift */,
 				E889C7FD28105330005F186D /* CharacterDetailsGeneralCell.xib */,
+				E889C8002810BF43005F186D /* vcCharacterDetailsExtension.swift */,
+				E889C8022810CCC3005F186D /* CharacterDetailsItemsCell.swift */,
+				E889C8032810CCC3005F186D /* CharacterDetailsItemsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +188,16 @@
 				E889C7F0280FFE17005F186D /* vmCharacterDetails.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E889C80628121023005F186D /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				E889C80728121073005F186D /* AdvancedTextField.swift */,
+				E889C80928121275005F186D /* TextFieldFloatingPlaceHolder.swift */,
+				E889C80B281215CD005F186D /* TextFieldFloatingPlaceHolder+FixCarePosition.swift */,
+			);
+			path = CustomControls;
 			sourceTree = "<group>";
 		};
 		E8AB7BC8280717FB0004332F /* Characters */ = {
@@ -268,6 +293,7 @@
 		E8DAED242804DB0C00BC5CD6 /* AWalkInTheMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				E889C80628121023005F186D /* CustomControls */,
 				E889C7EA280F6C42005F186D /* CharacterDetails */,
 				E8AB7BC8280717FB0004332F /* Characters */,
 				E889C7E7280F4E3F005F186D /* Globals */,
@@ -417,6 +443,7 @@
 				E8DAED322804DB0E00BC5CD6 /* LaunchScreen.storyboard in Resources */,
 				E889C7FF28105330005F186D /* CharacterDetailsGeneralCell.xib in Resources */,
 				E8DAED2F2804DB0E00BC5CD6 /* Assets.xcassets in Resources */,
+				E889C8052810CCC3005F186D /* CharacterDetailsItemsCell.xib in Resources */,
 				E8DAED2D2804DB0C00BC5CD6 /* Main.storyboard in Resources */,
 				E8AB7BE4280C7DAA0004332F /* CharacterCell.xib in Resources */,
 			);
@@ -450,9 +477,11 @@
 				E8DAED2A2804DB0C00BC5CD6 /* ViewController.swift in Sources */,
 				E889C7FE28105330005F186D /* CharacterDetailsGeneralCell.swift in Sources */,
 				E889C7F528100A32005F186D /* UITableViewExtension.swift in Sources */,
+				E889C8042810CCC3005F186D /* CharacterDetailsItemsCell.swift in Sources */,
 				E889C7F1280FFE17005F186D /* vmCharacterDetails.swift in Sources */,
 				E8AB7BC628062A8F0004332F /* HttpComms.swift in Sources */,
 				E8AB7BE3280C7DAA0004332F /* CharacterCell.swift in Sources */,
+				E889C8012810BF43005F186D /* vcCharacterDetailsExtension.swift in Sources */,
 				E889C7FB281043CE005F186D /* dataCharacterDetails.swift in Sources */,
 				E8AB7BCB280719370004332F /* dataCharacter.swift in Sources */,
 				E8DAED262804DB0C00BC5CD6 /* AppDelegate.swift in Sources */,
@@ -461,9 +490,12 @@
 				E8DAED282804DB0C00BC5CD6 /* SceneDelegate.swift in Sources */,
 				E8AB7BDA280A355E0004332F /* helperCommsAF.swift in Sources */,
 				E889C7EF280F6D06005F186D /* vcCharacterDetailsModal.swift in Sources */,
+				E889C80828121073005F186D /* AdvancedTextField.swift in Sources */,
+				E889C80A28121275005F186D /* TextFieldFloatingPlaceHolder.swift in Sources */,
 				E8AB7BD82808F2D50004332F /* defsDevelopMarvelApi.swift in Sources */,
 				E8AB7BCF2808EE4C0004332F /* vcTableCharacters.swift in Sources */,
 				E8AB7BD12808EF070004332F /* helperDevelopMarvelApi.swift in Sources */,
+				E889C80C281215CD005F186D /* TextFieldFloatingPlaceHolder+FixCarePosition.swift in Sources */,
 				E889C7F728100DBB005F186D /* UIViewExtension.swift in Sources */,
 				E8AB7BE6280CBB930004332F /* vmCharacters.swift in Sources */,
 				E8AB7BE0280C7C460004332F /* vcTableCharactersExtension.swift in Sources */,
