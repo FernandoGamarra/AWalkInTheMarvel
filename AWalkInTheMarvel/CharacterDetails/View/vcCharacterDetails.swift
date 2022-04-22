@@ -71,6 +71,9 @@ class vcCharacterDetails: UIViewController {
     }
     
     func initViewModel(id: Int, img: UIImage) {
+        
+        UtilsUI.showWaitControl(wait_title: "Loading character details...")
+        
         viewModel = vmCharacterDetails(idCharacter: id, image: img)
         
         viewModel.reloadTable = { [weak self] in

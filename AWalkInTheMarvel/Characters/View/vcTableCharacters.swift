@@ -53,6 +53,7 @@ class vcTableCharacters: UIViewController {
     }
     
     func initViewModel() {
+        UtilsUI.showWaitControl(wait_title: "Loading characters...")
         viewModel.getCharacters()
         viewModel.reloadTable = { [weak self] in
             DispatchQueue.main.async {

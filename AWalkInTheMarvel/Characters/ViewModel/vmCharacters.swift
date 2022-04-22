@@ -50,6 +50,7 @@ class vmCharacters: NSObject {
                 else {
                     print(error!)
                 }
+                UtilsUI.hideWaitControl()
             }
             
         }
