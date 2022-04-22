@@ -36,11 +36,15 @@ extension vcTableCharacters: UITableViewDelegate {
 // MARK: UITableViewDataSource implementation
 extension vcTableCharacters: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.charactersCellVM.count
+        let retValue = viewModel.getNumberCharactersLoaded()
+        print("\(#function): number rows in section \(retValue)")
+        return retValue
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellCharacter, for: indexPath) as? CharacterCell else { fatalError("xib does not exists") }
+        
+        print("\(#function): \(indexPath.row)")
         
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         if cellVM.image == nil  {

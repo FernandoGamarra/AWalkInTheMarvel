@@ -15,19 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //UINavigationBar.appearance().barTintColor = .red
-        
-//        HtppComms.fetchCharacters()
-//
-//        let req: baseRequest = baseRequest(.GET_CHARACTERS)
-//            //helperCommsAF.shared().callRequest(request: req, params: nil) { result, Error  in
-//        helperCommsAF.shared().callRequest(request: req, params: nil) { (data: dataCharacter?, error) -> () in
-//            if data?.content != nil {
-//
-//                return
-//            }
-//        }
-        
         return true
     }
 

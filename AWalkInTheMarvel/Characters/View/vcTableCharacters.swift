@@ -48,9 +48,6 @@ class vcTableCharacters: UIViewController {
         table.tableFooterView = UIView()
         table.allowsSelection = true
         
-//        table.estimatedRowHeight = 130.0
-//        table.rowHeight = UITableView.automaticDimension
-
         let cell: UINib = UINib(nibName: cellCharacter, bundle: nil)
         table.register(cell, forCellReuseIdentifier: cellCharacter)
     }
@@ -120,11 +117,6 @@ class vcTableCharacters: UIViewController {
     // MARK: ITextFieldDelegate
      @objc func onTextChanged(_ textField: UITextField) {
          mTextSelection = textField.text!
-         if (mTextSelection.count > 0) {
-             
-         }
-         else {
-             
-         }
+         viewModel.filterCharacters(letters: mTextSelection)
      }
 }
