@@ -71,9 +71,12 @@ class vmCharacterDetails: NSObject {
     
     func getGeneralDetails() -> (name: String, description: String, date: String, image: UIImage) {
         
+        let dateConverted = UtilsDate.dateFromStringToFormat(dateToConvert: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].dateModified)!,
+                                                             formatDate: FormatDate.EEEEMMMdyyyy)
+        
         return (name: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].name)!,
                 description: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].description)!,
-                date: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].dateModified)!,
+                date: dateConverted,
                 image: (characterDetails?.imgCharacter)!)
                 
     }

@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let dateConverted = UtilsDate.dateFromStringToFormat(dateToConvert: "2014-04-29T14:18:17-0400", formatDate: FormatDate.EEEEMMMdyyyy)
+        print(dateConverted)
         return true
     }
 

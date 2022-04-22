@@ -15,3 +15,8 @@ struct Colors {
     static let AppBackground = UIColor(r: 218, g: 198, b: 193)
     
 }
+
+struct FormatDate {
+    
+    static let EEEEMMMdyyyy = "EEEE, MMM d, yyyy"
+}
