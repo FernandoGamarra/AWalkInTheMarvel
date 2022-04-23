@@ -19,7 +19,7 @@ extension vcCharacterDetails: UITableViewDelegate {
                 
             case TBL_SECTION_DETAILS_GENERAL:
                 let (_, description, _, _) = viewModel.getGeneralDetails()
-                retValue = description.count > 0 ? 240 : 160
+                retValue = description.count > 0 ? 260 : 160
             case TBL_SECTION_DETAILS_COMICS,
                  TBL_SECTION_DETAILS_SERIES,
                  TBL_SECTION_DETAILS_STORIES,
@@ -53,6 +53,27 @@ extension vcCharacterDetails: UITableViewDelegate {
         }
 
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        var retValue: CGFloat = 20
+        
+        switch (section) {
+        case TBL_SECTION_DETAILS_GENERAL:
+            retValue = 0
+        case TBL_SECTION_DETAILS_COMICS,
+             TBL_SECTION_DETAILS_SERIES,
+             TBL_SECTION_DETAILS_STORIES,
+             TBL_SECTION_DETAILS_EVENTS:
+            
+            if viewModel != nil && viewModel.getItemsDetailsCountByType(section) == 0 {
+                retValue = 0
+            }
+        default:
+            retValue = 0
+        }
+        
+        return retValue
     }
     
 }
@@ -119,17 +140,20 @@ extension vcCharacterDetails: UITableViewDataSource {
              TBL_SECTION_DETAILS_STORIES,
              TBL_SECTION_DETAILS_EVENTS:
             
-            headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70))
-            //headerView?.backgroundColor = Colors.AppBackground
-            headerView?.layer.backgroundColor = Colors.AppBackground.cgColor
-            if let title_text = getHeaderTitle(section: section) {
-                title = UILabel(frame: CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 10, height: 18))
-                title.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize, weight: .bold)
-                title.font = title.font.withSize(18)
-                title.text = title_text
-                title.textColor = .red
+            if viewModel != nil && viewModel.getItemsDetailsCountByType(section) > 0 {
+                headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70))
+                //headerView?.backgroundColor = Colors.AppBackground
+                headerView?.layer.backgroundColor = UIColor.white.cgColor
+                if let title_text = getHeaderTitle(section: section) {
+                    title = UILabel(frame: CGRect(x: 10, y: 0, width: UIScreen.main.bounds.width - 10, height: 18))
+                    title.font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize, weight: .bold)
+                    title.font = title.font.withSize(18)
+                    title.text = title_text
+                    title.textColor = .red
+                    title.layer.backgroundColor = UIColor.white.cgColor
+                }
+                headerView?.addSubview(title)
             }
-            headerView?.addSubview(title)
             
         default:
             break
@@ -158,7 +182,7 @@ extension vcCharacterDetails: UITableViewDataSource {
         return cell
     }
 
-    func prepareDetailsGeneralCell(_ tableView:UITableView, _ indexPath: IndexPath) -> CharacterDetailsGeneralCell {
+    func prepareDetailsGeneralCell(_ tableView: UITableView, _ indexPath: IndexPath) -> CharacterDetailsGeneralCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellCharacterDetailsGeneral, for: indexPath) as? CharacterDetailsGeneralCell else { fatalError("xib does not exists") }
 
         if viewModel != nil {
@@ -221,7 +245,13 @@ extension vcCharacterDetails: UITableViewDataSource {
         
         if title != nil {
             if viewModel != nil {
-                title = "\(viewModel.getItemsDetailsCountByType(section)) " + title!
+                if viewModel.getItemsDetailsCountByType(section) > 0  {
+                    title! += "  [\(viewModel.getItemsDetailsCountByType(section))]"
+                }
+                else {
+                    title = nil
+                }
+                    
             }
         }
         

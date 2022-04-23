@@ -40,9 +40,11 @@ class vcTableCharacters: UIViewController {
     }
     
     func initView() {
+        self.view.layer.backgroundColor = UIColor.clear.cgColor
+        
         table.delegate = self
         table.dataSource = self
-        table.backgroundColor = Colors.AppBackground
+        //table.backgroundColor = Colors.AppBackground
         table.separatorColor = .black
         table.separatorStyle = .singleLine
         table.tableFooterView = UIView()
@@ -69,7 +71,7 @@ class vcTableCharacters: UIViewController {
     }
     
     func initControls() {
-        fieldFilter.titleColor = .black
+        fieldFilter.titleColor = .green
         fieldFilter.placeholder = "Filter characters"
         fieldFilter.title = "Find for..."
         fieldFilter.layer.backgroundColor = UIColor.white.cgColor

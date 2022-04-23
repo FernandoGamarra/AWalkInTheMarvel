@@ -49,9 +49,11 @@ class vcCharacterDetails: UIViewController {
  
     func initView() {
         
+        self.view.layer.backgroundColor = UIColor.white.cgColor
+        
         tableDetails.delegate = self
         tableDetails.dataSource = self
-        tableDetails.backgroundColor = Colors.AppBackground
+        tableDetails.backgroundColor = .clear
         tableDetails.separatorColor = .black
         tableDetails.separatorStyle = .none
         tableDetails.tableFooterView = UIView()
@@ -89,7 +91,7 @@ class vcCharacterDetails: UIViewController {
         
         // TODO: Common source (a)
         
-        self.view.backgroundColor = Colors.AppBackground
+        self.view.backgroundColor = UIColor.white
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Colors.NavBar
