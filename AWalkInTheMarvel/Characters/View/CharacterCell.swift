@@ -14,7 +14,7 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var charDescriptionLabel: UILabel!
     var idCharacter: Int!
     
-    var cellViewModel: vmCharacterCell? {
+    var cellViewModel: ViewModelCharacterCell? {
             didSet {
                 charNameLabel.text =  cellViewModel?.name
                 charDescriptionLabel.text = cellViewModel?.description

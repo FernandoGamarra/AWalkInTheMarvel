@@ -1,5 +1,5 @@
 //
-//  vmCharacters.swift
+//  ViewModelCharacters.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 17/4/22.
@@ -8,9 +8,9 @@
 import UIKit
 import AlamofireImage
 
-class vmCharacters: NSObject {
+class ViewModelCharacters: NSObject {
     
-    private var commsServices: helperCommsAF = helperCommsAF.shared()
+    private var commsServices: HelperCommsAF = HelperCommsAF.shared()
     
     private var totalCharactersInWeb: Int = 0
     private var totalCharactersInLocal: Int = 0
@@ -23,7 +23,7 @@ class vmCharacters: NSObject {
     
     var currentListCharacters: [Int] = [Int]()
     
-    var charactersCellVM = [vmCharacterCell]() {
+    var charactersCellVM = [ViewModelCharacterCell]() {
         didSet {
             //reloadTable?()
             
@@ -43,7 +43,7 @@ class vmCharacters: NSObject {
             
             print("\(#function) TO Download Characters, with offset: \(totalCharactersInLocal)")
             
-            commsServices.callRequest(request: charactersRequest, params: nil) { [self] (results: dataCharacter?, error) in
+            commsServices.callRequest(request: charactersRequest, params: nil) { [self] (results: ModelCharacter?, error) in
                 if error == nil {
                     processCharacters(results!)
                 }
@@ -59,7 +59,7 @@ class vmCharacters: NSObject {
         }
     }
     
-    func processCharacters(_ characters: dataCharacter) {
+    func processCharacters(_ characters: ModelCharacter) {
         
         mSynchroFilter.lock()
         defer { mSynchroFilter.unlock() }
@@ -88,25 +88,23 @@ class vmCharacters: NSObject {
             
             reloadTable?()
             
-            getCharacters()
-    
         }
         
     }
     
-    func prepareCellContent(_ character: characterProperties) -> vmCharacterCell? {
+    func prepareCellContent(_ character: characterProperties) -> ViewModelCharacterCell? {
         
-        var vmCell: vmCharacterCell? = nil
+        var vmCell: ViewModelCharacterCell? = nil
         
         if let filename = character.thumbnail?.path, let fileext = character.thumbnail?.fileExtension {
             let imagePathCharacter = "\(filename).\(fileext)"
-            vmCell = vmCharacterCell(id: character.id!, name: character.name!, description: character.description!, imagePath: imagePathCharacter, image: nil)
+            vmCell = ViewModelCharacterCell(id: character.id!, name: character.name!, description: character.description!, imagePath: imagePathCharacter, image: nil)
         }
         
         return vmCell
     }
     
-    func getCellViewModel(at indexPath: IndexPath) -> vmCharacterCell {
+    func getCellViewModel(at indexPath: IndexPath) -> ViewModelCharacterCell {
         
         if currentListCharacters.count == 0 {
             return charactersCellVM[indexPath.row]

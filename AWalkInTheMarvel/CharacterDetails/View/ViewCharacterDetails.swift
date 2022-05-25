@@ -1,5 +1,5 @@
 //
-//  vcCharacterDetails.swift
+//  ViewCharacterDetails.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 20/4/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class vcCharacterDetails: UIViewController {
+class ViewCharacterDetails: UIViewController {
     
     let TBL_SECTION_DETAILS_GENERAL      = 0
     let TBL_SECTION_DETAILS_COMICS       = 1
@@ -23,7 +23,7 @@ class vcCharacterDetails: UIViewController {
     let cellCharacterDetailsStories: String = "CharacterDetailsItemsCell"
     let cellCharacterDetailsEvents: String = "CharacterDetailsItemsCell"
     
-    var viewModel: vmCharacterDetails!
+    var viewModel: ViewModelCharacterDetails!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class vcCharacterDetails: UIViewController {
         
         initView()
 
-        let controller = self.navigationController?.previousViewController as? vcTableCharacters
+        let controller = self.navigationController?.previousViewController as? ViewTableCharacters
         controller!.fSelectedCharacter = { [self] idCharacter, imgCharacter in
             print("Data received from Block is: ID[\(idCharacter)]  -  IMG[\(imgCharacter)]")
             
@@ -76,7 +76,7 @@ class vcCharacterDetails: UIViewController {
         
         UtilsUI.showWaitControl(wait_title: "Loading character details...")
         
-        viewModel = vmCharacterDetails(idCharacter: id, image: img)
+        viewModel = ViewModelCharacterDetails(idCharacter: id, image: img)
         
         viewModel.reloadTable = { [weak self] in
             DispatchQueue.main.async {

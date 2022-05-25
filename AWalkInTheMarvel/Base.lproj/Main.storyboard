@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1110" y="-12"/>
         </scene>
-        <!--Vc Table Characters-->
+        <!--View Table Characters-->
         <scene sceneID="Pdq-MH-UeO">
             <objects>
-                <viewController id="aIq-pK-gCp" customClass="vcTableCharacters" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aIq-pK-gCp" customClass="ViewTableCharacters" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GTK-4x-UKr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="-259.4202898550725" y="-12.053571428571429"/>
         </scene>
-        <!--Vc Character Details-->
+        <!--View Character Details-->
         <scene sceneID="Lbl-jI-C2T">
             <objects>
-                <viewController storyboardIdentifier="vcCharacterDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C8i-r1-rzP" customClass="vcCharacterDetails" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewCharacterDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C8i-r1-rzP" customClass="ViewCharacterDetails" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wk0-M3-mYA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="618.84057971014499" y="-12.053571428571429"/>
         </scene>
-        <!--Vc Character Details Modal-->
+        <!--View Character Details Modal-->
         <scene sceneID="sZP-VA-qIa">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="qDi-3b-5RA" customClass="vcCharacterDetailsModal" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="qDi-3b-5RA" customClass="ViewCharacterDetailsModal" customModule="AWalkInTheMarvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Wd-zS-lUz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

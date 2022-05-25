@@ -1,5 +1,5 @@
 //
-//  helperCommsAF.swift
+//  HelperCommsAF.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 16/4/22.
@@ -9,17 +9,17 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class helperCommsAF {
+class HelperCommsAF {
     
     private let sessionManager: Session
     
-    private static var sharedCommsAFManager: helperCommsAF = {
-        let apiManager = helperCommsAF(sessionManager: Session())
+    private static var sharedCommsAFManager: HelperCommsAF = {
+        let apiManager = HelperCommsAF(sessionManager: Session())
         return apiManager
     }()
     
     // MARK: Accessor
-    class func shared() -> helperCommsAF {
+    class func shared() -> HelperCommsAF {
         return sharedCommsAFManager
     }
     

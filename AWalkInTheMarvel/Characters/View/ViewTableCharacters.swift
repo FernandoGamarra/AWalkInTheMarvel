@@ -1,5 +1,5 @@
 //
-//  vcTableCharacters.swift
+//  ViewTableCharacters.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 15/4/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class vcTableCharacters: UIViewController {
+class ViewTableCharacters: UIViewController {
 
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var fieldFilter: TextFieldFloatingPlaceHolder!
@@ -19,7 +19,7 @@ class vcTableCharacters: UIViewController {
     var mTextSelection: String = ""
     
     lazy var viewModel = {
-        vmCharacters()
+        ViewModelCharacters()
     }()
     var indexPathSelectedRow: IndexPath? = nil
     
@@ -115,6 +115,10 @@ class vcTableCharacters: UIViewController {
             let currentSelectionCell = table.cellForRow(at: indexPathSelectedRow!) as! CharacterCell
             fSelectedCharacter!(currentSelectionCell.idCharacter, currentSelectionCell.charImage.image!)
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: ITextFieldDelegate

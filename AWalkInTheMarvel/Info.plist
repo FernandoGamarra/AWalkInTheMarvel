@@ -26,9 +26,9 @@
 			</array>
 		</dict>
 	</dict>
-    <key>UIViewControllerBasedStatusBarAppearance </key>
-    <true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+    <key>UIViewControllerBasedStatusBarAppearance </key>
+    <false/>
 </dict>
 </plist>

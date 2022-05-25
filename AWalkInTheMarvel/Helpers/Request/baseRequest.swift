@@ -26,7 +26,7 @@ protocol IRequest {
 class baseRequest: IRequest {
     internal var Url: String {
         if self.apiFunc != nil {
-            return helperDevelopMarvelApi().getUrl(apiFunc!, offset: offset, id: id)
+            return HelperDevelopMarvelApi().getUrl(apiFunc!, offset: offset, id: id)
         }
         else {
             return ""

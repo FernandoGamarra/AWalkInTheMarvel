@@ -1,5 +1,5 @@
 //
-//  vmCharacterDetails.swift
+//  ViewModelCharacterDetails.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 20/4/22.
@@ -16,13 +16,13 @@ enum eTypeItemDetails: Int {
          DETAILS_EVENTS
 }
 
-class vmCharacterDetails: NSObject {
+class ViewModelCharacterDetails: NSObject {
     
-    private var commsServices: helperCommsAF = helperCommsAF.shared()
+    private var commsServices: HelperCommsAF = HelperCommsAF.shared()
     
     let idCharacter: Int!
     let imgCharacter: UIImage!
-    var characterDetails: dataCharacterDetails? = nil
+    var characterDetails: ModelCharacterDetails? = nil
     
     var reloadTable: (() -> Void)?
     
@@ -48,7 +48,7 @@ class vmCharacterDetails: NSObject {
         let characterDetailsRequest: baseRequest = baseRequest(.GET_CHARACTER_DETAILS)
         characterDetailsRequest.setId(idCharacter)
         
-        commsServices.callRequest(request: characterDetailsRequest, params: nil) { [self] (results: dataCharacter?, error) in
+        commsServices.callRequest(request: characterDetailsRequest, params: nil) { [self] (results: ModelCharacter?, error) in
             if error == nil {
                 processCharacterDetails(results!)
                 reloadTable?()
@@ -61,9 +61,9 @@ class vmCharacterDetails: NSObject {
         
     }
 
-    func processCharacterDetails(_ charDetails: dataCharacter) {
+    func processCharacterDetails(_ charDetails: ModelCharacter) {
         
-        characterDetails = dataCharacterDetails()
+        characterDetails = ModelCharacterDetails()
         characterDetails?.idCharacter = self.idCharacter
         characterDetails?.imgCharacter = self.imgCharacter
         characterDetails?.detailsCharacter = charDetails

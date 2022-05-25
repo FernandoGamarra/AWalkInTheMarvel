@@ -1,5 +1,5 @@
 //
-//  vcTableCharactersExtension.swift
+//  ViewTableCharactersExtension.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 17/4/22.
@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: UITableViewDelegate implementation
-extension vcTableCharacters: UITableViewDelegate {
+extension ViewTableCharacters: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
 //        return 130
@@ -23,7 +23,7 @@ extension vcTableCharacters: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let viewController = storyboard?.instantiateViewController(identifier: "vcCharacterDetails") as? vcCharacterDetails {
+        if let viewController = storyboard?.instantiateViewController(identifier: "ViewCharacterDetails") as? ViewCharacterDetails {
             
             navigationController?.pushViewController(viewController, animated: true)
             indexPathSelectedRow = indexPath
@@ -34,7 +34,7 @@ extension vcTableCharacters: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource implementation
-extension vcTableCharacters: UITableViewDataSource {
+extension ViewTableCharacters: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let retValue = viewModel.getNumberCharactersLoaded()
         print("\(#function): number rows in section \(retValue)")

@@ -1,5 +1,5 @@
 //
-//  dataCharacter.swift
+//  ModelCharacter.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 13/4/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct dataCharacter: Codable {
+struct ModelCharacter: Codable {
     
     var httpStatusCode: Int? = nil
     var httpStatusString: String? = nil

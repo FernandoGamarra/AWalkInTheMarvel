@@ -1,5 +1,5 @@
 //
-//  helperDevelopMarvelApi.swift
+//  HelperDevelopMarvelApi.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 15/4/22.
@@ -8,7 +8,7 @@
 import Foundation
 
 
-class helperDevelopMarvelApi {
+class HelperDevelopMarvelApi {
     
     let privateKey = "be8b66b5515b92d8297745e45dd34e3e306a273f"
     let publicKey = "6fc7aa73891a14e88a20a4425e522009"

@@ -1,5 +1,5 @@
 //
-//  vcCharacterDetailsExtension.swift
+//  ViewCharacterDetailsExtension.swift
 //  AWalkInTheMarvel
 //
 //  Created by Fernando Gamarra on 21/4/22.
@@ -9,7 +9,7 @@ import UIKit
 
 
 // MARK: UITableViewDelegate implementation
-extension vcCharacterDetails: UITableViewDelegate {
+extension ViewCharacterDetails: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var retValue: CGFloat = 0
         
@@ -79,7 +79,7 @@ extension vcCharacterDetails: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource implementation
-extension vcCharacterDetails: UITableViewDataSource {
+extension ViewCharacterDetails: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var retVal = 0
         
