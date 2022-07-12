@@ -40,7 +40,7 @@ class ViewCharacterDetails: UIViewController {
 
         let controller = self.navigationController?.previousViewController as? ViewTableCharacters
         controller!.fSelectedCharacter = { [self] idCharacter, imgCharacter in
-            print("Data received from Block is: ID[\(idCharacter)]  -  IMG[\(imgCharacter)]")
+            LogApp.write(.Verbose, content: "Data received from Block is: ID[\(idCharacter)]  -  IMG[\(imgCharacter)]")
             
             initViewModel(id: idCharacter, img: imgCharacter)
         }
@@ -72,7 +72,7 @@ class ViewCharacterDetails: UIViewController {
         
     }
     
-    func initViewModel(id: Int, img: UIImage) {
+    func initViewModel(id: Int, img: UIImage?) {
         
         UtilsUI.showWaitControl(wait_title: "Loading character details...")
         

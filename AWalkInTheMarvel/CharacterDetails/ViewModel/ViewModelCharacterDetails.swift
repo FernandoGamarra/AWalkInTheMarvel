@@ -21,12 +21,12 @@ class ViewModelCharacterDetails: NSObject {
     private var commsServices: HelperCommsAF = HelperCommsAF.shared()
     
     let idCharacter: Int!
-    let imgCharacter: UIImage!
+    let imgCharacter: UIImage?
     var characterDetails: ModelCharacterDetails? = nil
     
     var reloadTable: (() -> Void)?
     
-    init(idCharacter: Int, image: UIImage) {
+    init(idCharacter: Int, image: UIImage?) {
         
         self.idCharacter = idCharacter
         self.imgCharacter = image
@@ -54,7 +54,7 @@ class ViewModelCharacterDetails: NSObject {
                 reloadTable?()
             }
             else {
-                print(error!)
+                LogApp.write(.Verbose, content: "\(error!)")
             }
             UtilsUI.hideWaitControl()
         }
@@ -70,7 +70,7 @@ class ViewModelCharacterDetails: NSObject {
         
     }
     
-    func getGeneralDetails() -> (name: String, description: String, date: String, image: UIImage) {
+    func getGeneralDetails() -> (name: String, description: String, date: String, image: UIImage?) {
         
         let dateConverted = UtilsDate.dateFromStringToFormat(dateToConvert: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].dateModified)!,
                                                              formatDate: FormatDate.EEEEMMMdyyyy)
@@ -78,7 +78,7 @@ class ViewModelCharacterDetails: NSObject {
         return (name: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].name)!,
                 description: (characterDetails?.detailsCharacter?.content?.resultsCharacters![0].description)!,
                 date: dateConverted,
-                image: (characterDetails?.imgCharacter)!)
+                image: (characterDetails?.imgCharacter))
                 
     }
     

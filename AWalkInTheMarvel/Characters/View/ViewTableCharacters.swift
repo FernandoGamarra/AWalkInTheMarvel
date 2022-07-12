@@ -14,7 +14,7 @@ class ViewTableCharacters: UIViewController {
     
     let cellCharacter: String = "CharacterCell"
     
-    var fSelectedCharacter: ((Int, UIImage)->())?
+    var fSelectedCharacter: ((Int, UIImage?)->())?
     
     var mTextSelection: String = ""
     
@@ -44,7 +44,6 @@ class ViewTableCharacters: UIViewController {
         
         table.delegate = self
         table.dataSource = self
-        //table.backgroundColor = Colors.AppBackground
         table.separatorColor = .black
         table.separatorStyle = .singleLine
         table.tableFooterView = UIView()
@@ -55,8 +54,7 @@ class ViewTableCharacters: UIViewController {
     }
     
     func initViewModel() {
-        UtilsUI.showWaitControl(wait_title: "Loading characters...")
-        viewModel.getCharacters()
+
         viewModel.reloadTable = { [weak self] in
             DispatchQueue.main.async {
                 self?.table.reloadData()
@@ -66,6 +64,17 @@ class ViewTableCharacters: UIViewController {
         viewModel.reloadCell = { [weak self] index in
             DispatchQueue.main.async {
                 self?.table.reloadRows(at: [index], with: .automatic)
+            }
+        }
+        
+        UtilsUI.showWaitControl(wait_title: "Loading characters...")
+        
+        viewModel.getCharacters(true) { isCorrect in
+            DispatchQueue.main.async {
+                if isCorrect {
+                    self.table.reloadData()
+                }
+                UtilsUI.hideWaitControl()
             }
         }
     }
@@ -113,7 +122,7 @@ class ViewTableCharacters: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         if indexPathSelectedRow != nil {
             let currentSelectionCell = table.cellForRow(at: indexPathSelectedRow!) as! CharacterCell
-            fSelectedCharacter!(currentSelectionCell.idCharacter, currentSelectionCell.charImage.image!)
+            fSelectedCharacter!(currentSelectionCell.idCharacter, currentSelectionCell.charImage.image)
         }
     }
     

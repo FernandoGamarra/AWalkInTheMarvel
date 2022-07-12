@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let dateConverted = UtilsDate.dateFromStringToFormat(dateToConvert: "2014-04-29T14:18:17-0400", formatDate: FormatDate.EEEEMMMdyyyy)
-        print(dateConverted)
+        LogApp.write(.Verbose, content: dateConverted)
         return true
     }
 

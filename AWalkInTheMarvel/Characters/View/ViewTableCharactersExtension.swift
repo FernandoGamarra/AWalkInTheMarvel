@@ -37,14 +37,14 @@ extension ViewTableCharacters: UITableViewDelegate {
 extension ViewTableCharacters: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let retValue = viewModel.getNumberCharactersLoaded()
-        print("\(#function): number rows in section \(retValue)")
+        LogApp.write(.Verbose, content: "\(#function): number rows in section \(retValue)")
         return retValue
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellCharacter, for: indexPath) as? CharacterCell else { fatalError("xib does not exists") }
         
-        print("\(#function): \(indexPath.row)")
+        LogApp.write(.Verbose, content: "\(#function): \(indexPath.row)")
         
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         if cellVM.image == nil  {

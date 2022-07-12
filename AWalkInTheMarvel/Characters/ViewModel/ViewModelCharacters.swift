@@ -25,39 +25,51 @@ class ViewModelCharacters: NSObject {
     
     var charactersCellVM = [ViewModelCharacterCell]() {
         didSet {
-            //reloadTable?()
-            
         }
-        
     }
     
     override init() {
         super.init()
     }
     
-    func getCharacters() {
+    func getCharacters(_ isFirstCall: Bool = false, handler: @escaping (_ isCorrect: Bool)->()) {
         
         if totalCharactersInLocal == 0 || totalCharactersInLocal < totalCharactersInWeb {
         
             let charactersRequest: baseRequest = baseRequest(.GET_CHARACTERS, offset: totalCharactersInLocal)
             
-            print("\(#function) TO Download Characters, with offset: \(totalCharactersInLocal)")
+            LogApp.write(.Verbose, content: "\(#function) To Download Characters, with offset: \(totalCharactersInLocal)")
             
             commsServices.callRequest(request: charactersRequest, params: nil) { [self] (results: ModelCharacter?, error) in
                 if error == nil {
                     processCharacters(results!)
+                    if isFirstCall { self.downloadRestOfCharacters() }
                 }
                 else {
-                    print(error!)
+                    LogApp.write(.Error, content: "\(error!)")
                 }
-                UtilsUI.hideWaitControl()
+                handler(error == nil)
             }
-            
         }
         else {
-            print("\(#function) Completed download characters")
+            LogApp.write(.Verbose, content: "\(#function) Completed download characters")
+            handler(false)
         }
     }
+    
+    func downloadRestOfCharacters() {
+        
+        self.getCharacters() { isCorrect in
+            DispatchQueue.main.async {
+                if isCorrect {
+                    self.reloadTable?()
+                    self.downloadRestOfCharacters()
+                }
+            }
+        }
+        
+    }
+    
     
     func processCharacters(_ characters: ModelCharacter) {
         
@@ -80,13 +92,11 @@ class ViewModelCharacters: NSObject {
             
             charactersCellVM = tmpAllCharacters
             
-            print("\(#function) Current characters items: \(charactersCellVM.count)")
+            LogApp.write(.Verbose, content: "\(#function) Current characters items: \(charactersCellVM.count)")
             
             if mLettersFilter.count > 0 {
                 filterCharacters(letters: mLettersFilter)
             }
-            
-            reloadTable?()
             
         }
         
@@ -110,7 +120,7 @@ class ViewModelCharacters: NSObject {
             return charactersCellVM[indexPath.row]
         }
         else {
-            print("\(#function): Query for row: \(indexPath.row), for a total of \(currentListCharacters.count) rows in filter")
+            LogApp.write(.Verbose, content: "\(#function): Query for row: \(indexPath.row), for a total of \(currentListCharacters.count) rows in filter")
             return charactersCellVM[currentListCharacters[indexPath.row]]
         }
     }
@@ -136,7 +146,7 @@ class ViewModelCharacters: NSObject {
             defer { mSynchroFilter.unlock() }
             
             let realIndex = self.getRealIndex(index)
-            print("\(#function): \(index.row)   real[\(realIndex)]")
+            LogApp.write(.Verbose, content: "\(#function): \(index.row)   real[\(realIndex)]")
 
             if error == nil && image != nil {
                 let newImage = image!.af.imageRoundedIntoCircle()
@@ -144,7 +154,7 @@ class ViewModelCharacters: NSObject {
                 reloadCell?(index)
             }
             else {
-                print(error!)
+                LogApp.write(.Error, content: "\(error!)")
             }
         }
     }
@@ -167,7 +177,12 @@ class ViewModelCharacters: NSObject {
         var retVal: Int = index.row
         
         if currentListCharacters.count > 0 {
-            retVal = currentListCharacters[index.row]
+            if index.row < currentListCharacters.count {
+                retVal = currentListCharacters[index.row]
+            }
+            else {
+                LogApp.write(.Error, content: "\(#function) Index [\(index.row)] is greater than list character size [\(currentListCharacters.count)]")
+            }
         }
         
         return retVal
@@ -179,7 +194,7 @@ class ViewModelCharacters: NSObject {
         if letters.count == 0 {
             currentListCharacters.removeAll()
             mLettersFilter = letters
-            print("\(#function) Current filter is [\(mLettersFilter)] and items filtered \(currentListCharacters.count)")
+            LogApp.write(.Verbose, content: "\(#function) Current filter is [\(mLettersFilter)] and items filtered \(currentListCharacters.count)")
             reloadTable?()
         }
         else {
@@ -206,7 +221,7 @@ class ViewModelCharacters: NSObject {
         
         mLettersFilter = letters
         
-        print("\(#function) Current filter is [\(mLettersFilter)] and items filtered \(currentListCharacters.count)")
+        LogApp.write(.Verbose, content: "\(#function) Current filter is [\(mLettersFilter)] and items filtered \(currentListCharacters.count)")
         
         reloadTable?()
         
